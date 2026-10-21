@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    فونت وزیرمتن (Variable). فایل را با این نام در همین پوشه بگذارید:
+    app/src/main/res/font/vazirmatn_variable.ttf
+    (همان فایل «Vazirmatn[wght].ttf» که کروشه‌هایش را برداشته و با حروف کوچک و زیرخط نام‌گذاری شده است.)
+    سه وزن Regular / Medium / Bold از همان یک فایل ساخته می‌شود.
+-->
+<font-family xmlns:android="http://schemas.android.com/apk/res/android">
+    <font
+        android:font="@font/vazirmatn_variable"
+        android:fontStyle="normal"
+        android:fontVariationSettings="'wght' 400"
+        android:fontWeight="400" />
+    <font
+        android:font="@font/vazirmatn_variable"
+        android:fontStyle="normal"
+        android:fontVariationSettings="'wght' 500"
+        android:fontWeight="500" />
+    <font
+        android:font="@font/vazirmatn_variable"
+        android:fontStyle="normal"
+        android:fontVariationSettings="'wght' 700"
+        android:fontWeight="700" />
+</font-family>

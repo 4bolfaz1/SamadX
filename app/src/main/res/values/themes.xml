@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.SamadClient" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/seed_primary</item>
+        <item name="colorOnPrimary">@color/seed_on_primary</item>
+        <item name="colorPrimaryContainer">@color/seed_primary_container</item>
+        <item name="colorOnPrimaryContainer">@color/seed_on_primary_container</item>
+        <item name="colorSecondaryContainer">@color/seed_secondary_container</item>
+        <item name="colorOnSecondaryContainer">@color/seed_on_secondary_container</item>
+        <item name="colorTertiaryContainer">@color/seed_tertiary_container</item>
+        <item name="colorOnTertiaryContainer">@color/seed_on_tertiary_container</item>
+        <item name="android:windowBackground">?attr/colorSurface</item>
+        <item name="materialAlertDialogTheme">@style/ThemeOverlay.Samad.Dialog</item>
+
+        <!-- فونت وزیرمتن -->
+        <item name="android:fontFamily">@font/vazirmatn</item>
+        <item name="fontFamily">@font/vazirmatn</item>
+        <item name="textAppearanceDisplayLarge">@style/TextAppearance.Samad.DisplayLarge</item>
+        <item name="textAppearanceDisplayMedium">@style/TextAppearance.Samad.DisplayMedium</item>
+        <item name="textAppearanceDisplaySmall">@style/TextAppearance.Samad.DisplaySmall</item>
+        <item name="textAppearanceHeadlineLarge">@style/TextAppearance.Samad.HeadlineLarge</item>
+        <item name="textAppearanceHeadlineMedium">@style/TextAppearance.Samad.HeadlineMedium</item>
+        <item name="textAppearanceHeadlineSmall">@style/TextAppearance.Samad.HeadlineSmall</item>
+        <item name="textAppearanceTitleLarge">@style/TextAppearance.Samad.TitleLarge</item>
+        <item name="textAppearanceTitleMedium">@style/TextAppearance.Samad.TitleMedium</item>
+        <item name="textAppearanceTitleSmall">@style/TextAppearance.Samad.TitleSmall</item>
+        <item name="textAppearanceBodyLarge">@style/TextAppearance.Samad.BodyLarge</item>
+        <item name="textAppearanceBodyMedium">@style/TextAppearance.Samad.BodyMedium</item>
+        <item name="textAppearanceBodySmall">@style/TextAppearance.Samad.BodySmall</item>
+        <item name="textAppearanceLabelLarge">@style/TextAppearance.Samad.LabelLarge</item>
+        <item name="textAppearanceLabelMedium">@style/TextAppearance.Samad.LabelMedium</item>
+        <item name="textAppearanceLabelSmall">@style/TextAppearance.Samad.LabelSmall</item>
+    </style>
+
+    <!-- دیالوگ‌ها: عنوان و متن از راست -->
+    <style name="ThemeOverlay.Samad.Dialog" parent="ThemeOverlay.Material3.MaterialAlertDialog">
+        <item name="materialAlertDialogTitleTextStyle">@style/Samad.DialogTitle</item>
+    </style>
+    <style name="Samad.DialogTitle" parent="MaterialAlertDialog.Material3.Title.Text">
+        <item name="android:textAlignment">viewStart</item>
+        <item name="android:textDirection">rtl</item>
+    </style>
+</resources>

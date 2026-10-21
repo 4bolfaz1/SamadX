@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- پالت سبز Material 3 (روی اندروید ۱۲+ با رنگ‌های پویای کاربر جایگزین می‌شود) -->
+    <color name="seed_primary">#1A6B47</color>
+    <color name="seed_on_primary">#FFFFFF</color>
+    <color name="seed_primary_container">#A6F2C2</color>
+    <color name="seed_on_primary_container">#002112</color>
+    <color name="seed_secondary_container">#CEE9D7</color>
+    <color name="seed_on_secondary_container">#082016</color>
+
+    <color name="seed_tertiary_container">#FFE0A3</color>
+    <color name="seed_on_tertiary_container">#3A2A00</color>
+
+    <color name="ic_launcher_background">#1A6B47</color>
+</resources>

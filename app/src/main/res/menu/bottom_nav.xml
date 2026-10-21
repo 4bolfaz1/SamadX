@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/nav_quick"
+        android:icon="@drawable/ic_qr"
+        android:title="@string/nav_quick" />
+    <item
+        android:id="@+id/nav_week"
+        android:icon="@drawable/ic_restaurant"
+        android:title="@string/nav_week" />
+    <item
+        android:id="@+id/nav_credit"
+        android:icon="@drawable/ic_wallet"
+        android:title="@string/nav_credit" />
+    <item
+        android:id="@+id/nav_account"
+        android:icon="@drawable/ic_person"
+        android:title="@string/nav_account" />
+</menu>

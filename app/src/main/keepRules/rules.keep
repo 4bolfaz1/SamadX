@@ -1,0 +1,5 @@
+# Keep App Startup initializers instantiated via reflection by InitializationProvider
+-keep public class * implements androidx.startup.Initializer {
+    public <init>();
+}
+-keep class androidx.startup.InitializationProvider { *; }

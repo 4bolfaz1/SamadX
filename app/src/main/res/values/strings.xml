@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">رزرو غذا</string>
+
+    <!-- ورود -->
+    <string name="login_title">ورود به سامانه‌ی تغذیه</string>
+    <string name="login_subtitle">با همان نام کاربری و رمز عبور سماد وارد شوید. از این پس ورود خودکار انجام می‌شود.</string>
+    <string name="login_username">نام کاربری (شماره دانشجویی)</string>
+    <string name="login_password">رمز عبور</string>
+    <string name="login_button">ورود</string>
+    <string name="login_fill_all">نام کاربری و رمز عبور را وارد کنید.</string>
+
+    <!-- ناوبری -->
+    <string name="nav_quick">تحویل سریع</string>
+    <string name="nav_week">برنامه غذایی</string>
+    <string name="nav_credit">کیف پول</string>
+    <string name="nav_account">حساب من</string>
+
+    <!-- برنامه هفتگی -->
+    <string name="week_prev">هفته‌ی قبل</string>
+    <string name="week_prev_short">قبلی</string>
+    <string name="week_next_short">بعدی</string>
+    <string name="week_next">هفته‌ی بعد</string>
+    <string name="today">امروز</string>
+    <string name="reserve">رزرو</string>
+    <string name="cancel_reserve">لغو رزرو</string>
+    <string name="pickup_code">کد تحویل</string>
+    <string name="reserve_all">رزرو همه</string>
+    <string name="status_consumed">تحویل شد</string>
+    <string name="status_reserved_locked">رزرو شده</string>
+    <string name="status_closed">مهلت رزرو تمام شده</string>
+    <string name="empty_week">برای این هفته برنامه‌ی غذایی تعریف نشده است.</string>
+    <string name="reserved_ok">رزرو شد</string>
+    <string name="cancelled_ok">رزرو لغو شد</string>
+
+    <!-- کد تحویل غذا -->
+    <string name="pickup_title">کد تحویل غذا</string>
+    <string name="pickup_note">کیوآر کد را جلوی دستگاه بگیرید یا کد را در دستگاه وارد کنید.</string>
+    <string name="copy">کپی</string>
+    <string name="close">بستن</string>
+    <string name="copied">کپی شد</string>
+
+    <!-- اعتبار -->
+    <string name="credit_label_positive">موجودی کیف پول شما</string>
+    <string name="credit_label_negative">بدهکاری کیف پول شما</string>
+    <string name="credit_subsidy">موجودی یارانه‌ای</string>
+    <string name="credit_history">تاریخچه‌ی شارژ</string>
+    <string name="credit_receipt">شماره‌ی پیگیری</string>
+    <string name="credit_empty">تراکنشی ثبت نشده است.</string>
+
+    <!-- حساب -->
+    <string name="account_self">سلف انتخاب‌شده</string>
+    <string name="account_change_self">تغییر سلف</string>
+    <string name="account_self_changed">سلف تغییر کرد. به تب «برنامه غذایی» بروید.</string>
+    <string name="account_auto_login">ورود خودکار فعال است. اطلاعات ورود به‌صورت رمزشده روی همین گوشی نگه‌داری می‌شود.</string>
+    <string name="account_logout">خروج از این حساب</string>
+    <string name="logout_confirm_title">خروج از حساب؟</string>
+    <string name="logout_confirm_message">نام کاربری و رمز ذخیره‌شده از این گوشی پاک می‌شود.</string>
+    <string name="logout_yes">خروج</string>
+    <string name="cancel">انصراف</string>
+    <string name="developed_by">توسعه‌یافته توسط Abolfazl</string>
+    <string name="developer_telegram">t.me/theabufazel</string>
+    <string name="open_telegram_title">باز کردن تلگرام؟</string>
+    <string name="open_telegram_message">حساب تلگرام من در تلگرام یا مرورگر باز می‌شود.</string>
+    <string name="open_telegram_yes">باز کن</string>
+    <string name="open_telegram_failed">برنامه‌ای برای باز کردن پیوند پیدا نشد.</string>
+    <string name="retry">تلاش دوباره</string>
+    <string name="account_student_id">شماره دانشجویی: %1$s</string>
+    <string name="week_wallet">موجودی کیف پول: %1$s</string>
+    <string name="week_wallet_debt">بدهکاری کیف پول: %1$s</string>
+
+    <!-- اشتراک‌گذاری و خطای QR -->
+    <string name="share">اشتراک‌گذاری</string>
+    <string name="share_chooser">اشتراک‌گذاری کد تحویل</string>
+    <string name="share_text">کد تحویل غذا: %1$s</string>
+    <string name="share_failed">ساخت تصویر ممکن نشد.</string>
+    <string name="share_intro">رزرو و دریافت سریع غذای دانشگاه</string>
+    <string name="qr_failed_title">QR دریافت نشد</string>
+    <string name="qr_failed_hint">برای تلاش دوباره لمس کنید</string>
+
+    <string name="week_summary">%1$s وعده رزرو · %2$s</string>
+    <string name="week_no_reserve">هنوز وعده‌ای رزرو نکرده‌اید</string>
+    <string name="pull_to_retry">برای تلاش دوباره، صفحه را به پایین بکشید.</string>
+    <string name="reserve_all_confirm">%1$s وعده با مجموع %2$s رزرو می‌شود. ادامه می‌دهید؟</string>
+    <string name="reserve_all_none">وعده‌ی قابل رزروی باقی نمانده است.</string>
+    <string name="reserve_all_ok">%1$s وعده رزرو شد.</string>
+    <string name="reserve_all_partial">%1$s وعده رزرو شد و بقیه متوقف شد: %2$s</string>
+    <string name="error_unexpected">خطای غیرمنتظره: %1$s</string>
+
+
+    <string name="pickup_invalid">برای این رزرو کد تحویل معتبری وجود ندارد.</string>
+
+    <string name="credit_increase">افزایش موجودی</string>
+    <string name="credit_transfer">انتقال موجودی</string>
+    <string name="week_archived">آرشیو شده؛ این هفته دیگر به‌روزرسانی نمی‌شود.</string>
+    <string name="cache_notice_plain">آخرین به‌روزرسانی: %1$s</string>
+    <string name="cache_notice_error">دریافت از سرور ناموفق بود: %1$s
+آخرین به‌روزرسانی: %2$s</string>
+    <string name="charge_confirm_title">رفتن به صفحه‌ی پرداخت</string>
+    <string name="charge_confirm_message">مرورگر گوشی باز می‌شود و صفحه‌ی افزایش موجودی کیف پول سماد را با ورود خودکار نشان می‌دهد.\n\nآنجا مبلغ را انتخاب و در درگاه بانک پرداخت کنید. پس از پرداخت، به همین برنامه برمی‌گردید و موجودی کیف پول شما به‌روز می‌شود.</string>
+    <string name="charge_open_browser">باز کردن مرورگر</string>
+    <string name="charge_failed">باز کردن مرورگر ممکن نشد.</string>
+
+    <string name="transfer_username_hint">نام کاربری گیرنده (شماره دانشجویی)</string>
+    <string name="transfer_amount_hint">مبلغ</string>
+    <string name="transfer_amount_suffix">تومان</string>
+    <string name="transfer_no_fee">بدون کارمزد</string>
+    <string name="transfer_continue">ادامه</string>
+    <string name="transfer_username_required">نام کاربری گیرنده را وارد کنید.</string>
+    <string name="transfer_self">نمی‌توانید به خودتان انتقال دهید.</string>
+    <string name="transfer_amount_invalid">مبلغ را به تومان و به‌صورت عدد وارد کنید.</string>
+    <string name="transfer_confirm_title">تأیید انتقال موجودی</string>
+    <string name="transfer_confirm_message">%1$s به کاربر %2$s منتقل می‌شود. این کار برگشت‌پذیر نیست.</string>
+    <string name="transfer_do">انتقال</string>
+    <string name="transfer_done_title">انتقال انجام شد</string>
+    <string name="transfer_done_message">%1$s به %2$s منتقل شد.</string>
+
+    <!-- تحویل سریع -->
+    <string name="quick_none">وعده‌ی رزروشده‌ی تحویل‌نشده‌ای در پیش نیست. از تب «برنامه غذایی» رزرو کنید.</string>
+    <string name="quick_next">وعده‌ی بعدی</string>
+    <string name="quick_today">امروز</string>
+    <string name="quick_tomorrow">فردا</string>
+    <string name="quick_remaining">%1$s وعده‌ی رزروشده‌ی دیگر هم دارید.</string>
+
+    <!-- حساب: رمز و گزارش -->
+    <string name="account_change_password">تغییر رمز عبور</string>
+    <string name="account_activity">گزارش عملکرد</string>
+    <string name="pw_current">رمز فعلی</string>
+    <string name="pw_new">رمز جدید</string>
+    <string name="pw_repeat">تکرار رمز جدید</string>
+    <string name="pw_required">این فیلد را پر کنید.</string>
+    <string name="pw_mismatch">تکرار رمز با رمز جدید یکسان نیست.</string>
+    <string name="pw_same">رمز جدید باید با رمز فعلی فرق داشته باشد.</string>
+    <string name="pw_wrong_current">رمز فعلی درست نیست.</string>
+    <string name="pw_save">تغییر رمز</string>
+    <string name="pw_done">رمز عبور تغییر کرد و برای ورود خودکار ذخیره شد.</string>
+    <string name="activity_title">گزارش عملکرد</string>
+    <string name="activity_empty">در ۳۰ روز اخیر فعالیتی ثبت نشده است.</string>
+    <string name="activity_hint">فعالیت‌های ۳۰ روز اخیر</string>
+
+    <string name="ok">تأیید</string>
+    <string name="charge_ok_title">افزایش موجودی موفق بود</string>
+    <string name="charge_ok_message">%1$s به موجودی کیف پول شما اضافه شد.\nموجودی فعلی: %2$s</string>
+    <string name="charge_no_change">تغییری در موجودی ثبت نشد.</string>
+
+    <!-- چندحسابی -->
+    <string name="accounts_title">حساب‌ها</string>
+    <string name="accounts_count">%1$s از %2$s حساب</string>
+    <string name="accounts_manage">مدیریت</string>
+    <string name="accounts_add">افزودن حساب</string>
+    <string name="accounts_note">بدون خروج از حساب فعلی بین حساب‌ها جابه‌جا می‌شوید. اطلاعات و کش هر حساب جدا و فقط روی همین گوشی نگه‌داری می‌شود.</string>
+    <string name="accounts_full">به سقف تعداد حساب‌ها رسیده‌اید. برای افزودن حساب تازه، از یکی از حساب‌ها خارج شوید.</string>
+    <string name="logout_account_message">«%1$s» از برنامه خارج می‌شود و رمز و همه‌ی اطلاعات ذخیره‌شده‌ی همین حساب از این گوشی پاک می‌شود. بقیه‌ی حساب‌ها دست‌نخورده می‌مانند.</string>
+    <string name="login_subtitle_add">حساب دیگری را اضافه کنید. حساب فعلی شما سر جایش می‌ماند و هر زمان بخواهید می‌توانید بین حساب‌ها جابه‌جا شوید.</string>
+    <string name="login_back">بازگشت</string>
+    <string name="login_remove_account">حذف این حساب از برنامه</string>
+    <string name="login_need_consent">برای ورود باید متن حریم خصوصی را بپذیرید.</string>
+
+    <!-- حریم خصوصی -->
+    <string name="consent_title">پیش از ورود، لطفاً بخوانید</string>
+    <string name="consent_summary">• این برنامه غیررسمی و مستقل است؛ دانشگاه یا سازندگان سماد آن را منتشر نکرده‌اند.\n• ما هیچ اطلاعاتی از شما دریافت یا ذخیره نمی‌کنیم. برنامه سرور، آمارگیر و تبلیغ ندارد و هیچ‌چیز برای ما ارسال نمی‌شود.\n• نام کاربری، رمز (رمزشده) و کش برنامه‌ی غذایی و موجودی فقط روی همین گوشی می‌ماند و با خروج از حساب پاک می‌شود.\n• برنامه فقط مستقیماً با سرور رسمی سماد حرف می‌زند، درست مثل وقتی که خودتان وارد سامانه می‌شوید.</string>
+    <string name="consent_check">این موارد را خوانده‌ام و می‌پذیرم.</string>
+    <string name="consent_read_full">مطالعه‌ی متن کامل</string>
+    <string name="privacy_title">حریم خصوصی و شرایط استفاده</string>
+    <string name="privacy_understood">متوجه شدم</string>
+    <string name="privacy_accept">می‌پذیرم و ادامه</string>
+    <string name="privacy_decline">نمی‌پذیرم، خروج</string>
+    <string name="privacy_full"><![CDATA[<b>درباره‌ی این برنامه</b><br>«رزرو غذا» یک برنامه‌ی غیررسمی و مستقل است. دانشگاه، سازندگان سامانه‌ی سماد یا هیچ نهاد رسمی دیگری آن را منتشر یا تأیید نکرده است. تنها کارش این است که رزرو و مدیریت وعده‌های غذایی شما را روی گوشی راحت‌تر کند.<br><br><b>چه اطلاعاتی از شما دریافت می‌کنیم؟</b><br>هیچ. این برنامه سرور، حساب کاربری، آمارگیر، ابزار ردیابی یا تبلیغات ندارد و هیچ داده‌ای از گوشی شما برای ما یا هیچ شخص ثالثی فرستاده نمی‌شود. ما نه نام کاربری شما را می‌بینیم، نه رمز عبور، نه برنامه‌ی غذایی و نه موجودی کیف پول شما را.<br><br><b>چه چیزی روی گوشی شما نگه‌داری می‌شود؟</b><br>برای اینکه هر بار مجبور به ورود نشوید و برنامه بدون اینترنت هم آخرین اطلاعات دریافت‌شده را نشان دهد، بخشی از داده‌ها فقط روی همین گوشی ذخیره می‌شود: نام کاربری، رمز عبور و توکن‌های ورود (رمزشده با کلیدی که داخل Android Keystore ساخته می‌شود و از دستگاه خارج نمی‌شود) و نسخه‌ی ذخیره‌شده‌ی برنامه‌ی هفتگی، موجودی کیف پول، گزارش عملکرد و کدهای تحویل. اگر چند حساب اضافه کنید، داده‌ی هر حساب جدا نگه‌داری می‌شود. با «خروج از حساب»، تمام داده‌های همان حساب از گوشی پاک می‌شود و با حذف برنامه همه‌چیز پاک می‌شود.<br><br><b>برنامه با چه کسی ارتباط می‌گیرد؟</b><br>فقط و مستقیماً با سرور رسمی سماد (saba.tvu.ac.ir) و با همان اطلاعاتی که خودتان وارد کرده‌اید، درست مثل زمانی که خودتان وارد سامانه می‌شوید. هیچ واسطه‌ای در میان نیست. افزایش موجودی هم در مرورگر گوشی، روی صفحه‌ی رسمی سماد و درگاه بانک انجام می‌شود و برنامه هیچ‌چیز از اطلاعات پرداخت شما نمی‌بیند.<br><br><b>اشتراک‌گذاری و پیوندها</b><br>تصویر کد تحویل فقط روی گوشی خودتان ساخته می‌شود و فقط وقتی «اشتراک‌گذاری» را بزنید و خودتان مقصد را انتخاب کنید ارسال می‌شود. چون کد تحویل برای دریافت غذا کافی است، آن را فقط برای افراد مورد اعتماد بفرستید. پیوندهای بیرونی (مثل تلگرام) هم فقط پس از تأیید شما باز می‌شوند.<br><br><b>مسئولیت استفاده</b><br>چون برنامه غیررسمی است، ممکن است با تغییر یا اختلال در سامانه‌ی سماد موقتاً درست کار نکند. مرجع نهایی رزروها، موجودی و تحویل غذا همیشه خود سامانه‌ی رسمی است؛ در موارد مهم آن را هم بررسی کنید. استفاده از برنامه با مسئولیت خود شماست.<br><br><b>تغییرات در آینده</b><br>اگر روزی امکانی اضافه شود که به ارسال یا جمع‌آوری هر نوع داده نیاز داشته باشد، پیش از آن صریحاً و دوباره از شما تأیید می‌گیریم.]]></string>
+
+    <!-- برنامه غذایی: آرشیو زودهنگام -->
+    <string name="week_settled">همه‌ی وعده‌های این هفته تحویل شده یا مهلتشان تمام شده؛ این هفته دیگر تغییری نمی‌کند و آرشیو شد.</string>
+</resources>
