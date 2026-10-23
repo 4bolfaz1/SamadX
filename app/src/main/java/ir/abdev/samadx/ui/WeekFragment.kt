@@ -170,6 +170,7 @@ class WeekFragment : Fragment() {
         val at = p?.cachedAt
         val text = when {
             p == null -> null
+            p.partial -> getString(R.string.week_partial)
             p.archived -> getString(
                 if (weekStart.isBefore(Jalali.weekStart(LocalDate.now()))) R.string.week_archived else R.string.week_settled
             ) +

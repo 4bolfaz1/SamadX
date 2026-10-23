@@ -118,7 +118,7 @@ object ShareImage {
         val tw = (footer.width() - 32 - iconSize - 24 - 32).toInt()
         val nameL = layout(ctx.getString(R.string.app_name), 40f, INK, bold, Layout.Alignment.ALIGN_CENTER, tw)
         val introL = layout(ctx.getString(R.string.share_intro), 28f, MUTED, regular, Layout.Alignment.ALIGN_CENTER, tw)
-        val devL = layout("t.me/theabufazel", 26f, accent, regular, Layout.Alignment.ALIGN_CENTER, tw)
+        val devL = layout("github.com/4bolfaz1/SamadX", 26f, accent, regular, Layout.Alignment.ALIGN_CENTER, tw)
         val blockH = nameL.height + introL.height + devL.height
         var ty = footer.top + (footerH - blockH) / 2f
         for (l in listOf(nameL, introL, devL)) {

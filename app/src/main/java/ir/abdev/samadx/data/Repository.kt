@@ -86,7 +86,32 @@ class Repository(private val api: ApiClient, private val store: Store) {
             return plan.copy(archived = isPast || (!isFuture && plan.isSettled))
         } catch (e: ApiException) {
             if (cached != null) return cached.copy(cacheError = e.userMessage, archived = isPast || (!isFuture && cached.isSettled))
+            // نه کش داریم و نه برنامه‌ی کامل: اگر اینترنت هست، حداقل رزروهای خود کاربر را از اندپوینت سبک‌تر نشان بده
+            if (e !is OfflineException) reservesOnly(self, weekStart)?.let { return it }
             throw e
+        }
+    }
+
+    /**
+     * پشتیبان: GET /rest/reserves (فقط رزروهای کاربر + remainCredit). نتیجه‌ی «ناقص» است و ذخیره/آرشیو نمی‌شود.
+     * اگر این هم شکست بخورد null برمی‌گردد تا خطای اصلی نمایش داده شود.
+     */
+    private suspend fun reservesOnly(self: Self, weekStart: LocalDate): WeekPlan? = try {
+        val p = api.get("/rest/reserves", mapOf("weekStartDate" to "$weekStart 00:00:00", "selfType" to "NORMAL")).obj()
+        val (plan, remain) = Parsers.reservesWeek(weekStart, p, self.id)
+        remain?.let { syncCredit(it) }
+        plan
+    } catch (e: ApiException) {
+        null
+    }
+
+    /** موجودی دقیقِ سرور (ریال) را روی اعتبار ذخیره‌شده می‌نویسد (فقط اگر قبلاً اعتبار ذخیره شده باشد). */
+    private fun syncCredit(rial: Long) {
+        val st = store.getCreditJson() ?: return
+        runCatching {
+            val p = JSONObject(st.json)
+            p.put("credit", rial)
+            store.putCreditJson(p.toString(), st.fetchedAt)
         }
     }
 

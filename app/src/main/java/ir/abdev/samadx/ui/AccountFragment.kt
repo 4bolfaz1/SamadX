@@ -16,6 +16,7 @@ import ir.abdev.samadx.data.Self
 import ir.abdev.samadx.ActivityLogActivity
 import ir.abdev.samadx.databinding.DialogPasswordBinding
 import ir.abdev.samadx.databinding.FragmentAccountBinding
+import ir.abdev.samadx.util.AppLinks
 import ir.abdev.samadx.util.Fa
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import kotlinx.coroutines.launch
@@ -49,7 +50,17 @@ class AccountFragment : Fragment() {
         b.btnChangeSelf.setOnClickListener { chooseSelf() }
         b.btnActivity.setOnClickListener { startActivity(Intent(requireContext(), ActivityLogActivity::class.java)) }
         b.btnPassword.setOnClickListener { showPasswordDialog() }
-        b.btnTelegram.setOnClickListener { confirmOpenTelegram() }
+        b.btnTelegram.setOnClickListener {
+            confirmOpenLink(R.string.open_telegram_title, R.string.open_telegram_message, AppLinks.TELEGRAM)
+        }
+        b.btnGithub.setOnClickListener {
+            confirmOpenLink(R.string.open_github_title, R.string.open_github_message, AppLinks.GITHUB)
+        }
+        val version = runCatching {
+            requireContext().packageManager.getPackageInfo(requireContext().packageName, 0).versionName
+        }.getOrNull()
+        b.appVersion.isVisible = version != null
+        if (version != null) b.appVersion.text = getString(R.string.app_version, Fa.digits(version))
         loadSelfs()
     }
 
@@ -77,15 +88,15 @@ class AccountFragment : Fragment() {
         }
     }
 
-    /** پیش از باز کردن لینک تلگرام از کاربر تأیید می‌گیرد. */
-    private fun confirmOpenTelegram() {
+    /** پیش از باز کردن هر لینک بیرونی از کاربر تأیید می‌گیرد. */
+    private fun confirmOpenLink(titleRes: Int, messageRes: Int, url: String) {
         MaterialAlertDialogBuilder(requireContext())
-            .setTitle(R.string.open_telegram_title)
-            .setMessage(R.string.open_telegram_message)
+            .setTitle(titleRes)
+            .setMessage(messageRes)
             .setNegativeButton(R.string.cancel, null)
             .setPositiveButton(R.string.open_telegram_yes) { _, _ ->
                 try {
-                    startActivity(Intent(Intent.ACTION_VIEW, android.net.Uri.parse(ir.abdev.samadx.util.AppLinks.TELEGRAM)))
+                    startActivity(Intent(Intent.ACTION_VIEW, android.net.Uri.parse(url)))
                 } catch (e: android.content.ActivityNotFoundException) {
                     snack(getString(R.string.open_telegram_failed))
                 }

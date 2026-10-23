@@ -174,8 +174,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="8dp"
             android:text="@string/privacy_title" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_github"
+            style="@style/Widget.Material3.Button.TextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/account_source" />
 
         <!-- امضای توسعه‌دهنده؛ لمس لینک ابتدا تأیید می‌گیرد و بعد تلگرام باز می‌شود -->
         <TextView
@@ -195,5 +203,13 @@
             android:layout_gravity="center_horizontal"
             android:text="@string/developer_telegram"
             android:textDirection="ltr" />
+
+        <TextView
+            android:id="@+id/app_version"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textAppearance="?attr/textAppearanceBodySmall"
+            android:textColor="?attr/colorOnSurfaceVariant" />
     </LinearLayout>
 </ScrollView>

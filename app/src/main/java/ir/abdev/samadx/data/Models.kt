@@ -53,7 +53,9 @@ data class WeekPlan(
     val cachedAt: Long? = null,
     /** اگر به‌خاطر خطای سرور از کش نمایش داده شده: پیام خطا. */
     val cacheError: String? = null,
-    val archived: Boolean = false
+    val archived: Boolean = false,
+    /** فقط رزروهای کاربر (از /rest/reserves)؛ برنامه‌ی کامل در دسترس نبود. هرگز کش/آرشیو نمی‌شود. */
+    val partial: Boolean = false
 ) {
     /**
      * «تمام‌شده»: هر وعده یا تحویل شده، یا نه رزرو دارد و نه دیگر قابل رزرو است (مهلت تمام شده).
@@ -153,6 +155,45 @@ object Parsers {
             .map { (date, list) -> DayPlan(LocalDate.parse(date), list.sortedBy { it.mealTypeId }) }
 
         return WeekPlan(weekStart, days, reserves)
+    }
+
+    /**
+     * پاسخ /rest/reserves (فقط رزروهای کاربر) را به یک هفته‌ی «ناقص» تبدیل می‌کند؛ گزینه‌ای جز رزروها ندارد
+     * و رزرو/لغو در آن غیرفعال است. فقط رزروهای همان سلف نگه داشته می‌شوند. remainCredit (ریال) هم برمی‌گردد.
+     */
+    fun reservesWeek(weekStart: LocalDate, payload: JSONObject, selfId: Long): Pair<WeekPlan, Long?> {
+        val reserves = ArrayList<Reserve>()
+        val days = ArrayList<DayPlan>()
+        for (d in payload.optJSONArray("weekDays").objects()) {
+            val opts = ArrayList<Option>()
+            for (m in d.optJSONArray("mealTypes").objects()) {
+                val r = m.optJSONObject("reserve") ?: continue
+                if (!r.optBoolean("selected", true)) continue
+                if (r.has("selfId") && !r.isNull("selfId") && r.lng("selfId") != selfId) continue
+                val rv = reserve(r)
+                reserves += rv
+                opts += Option(
+                    programId = rv.programId,
+                    date = r.str("programDate") ?: d.str("date") ?: continue,
+                    mealTypeId = rv.mealTypeId,
+                    mealName = m.str("name") ?: "",
+                    foodTypeId = rv.foodTypeId,
+                    foodTypeTitle = r.str("foodTypeTitle") ?: "",
+                    foodName = rv.foodNames,
+                    sides = (r.str("besideFoodNames") ?: "").split(",").map { it.trim() }.filter { it.isNotEmpty() }.joinToString("، "),
+                    price = rv.price,
+                    score = 0.0,
+                    votes = 0,
+                    canReserve = false,
+                    canCancel = false,
+                    minCount = rv.count,
+                    reserve = rv
+                )
+            }
+            if (opts.isNotEmpty()) days += DayPlan(LocalDate.parse(d.str("date") ?: continue), opts)
+        }
+        val remain = if (payload.has("remainCredit") && !payload.isNull("remainCredit")) payload.lng("remainCredit") else null
+        return WeekPlan(weekStart, days, reserves, partial = true) to remain
     }
 
     private fun programOptions(p: JSONObject, reserves: List<Reserve>): List<Option> {

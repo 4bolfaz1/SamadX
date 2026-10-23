@@ -12,9 +12,12 @@ import java.net.URL
 import java.net.URLEncoder
 
 /** خطای قابل‌نمایش به کاربر. http = 0 یعنی خطای شبکه. */
-class ApiException(val userMessage: String, val code: Int = 0, val http: Int = 0) : Exception(userMessage)
+open class ApiException(val userMessage: String, val code: Int = 0, val http: Int = 0) : Exception(userMessage)
 
 /** نشست معتبر نیست و کاربر باید دوباره وارد شود. */
+/** اینترنت گوشی قطع است؛ هیچ درخواستی به سرور فرستاده نشده است. */
+class OfflineException : ApiException("اینترنت گوشی قطع است.", http = -1)
+
 class AuthRequiredException(message: String = "برای ادامه باید دوباره وارد شوید.") : Exception(message)
 
 /** پاسخ استاندارد سرور: {type, code, message, messageFa, payload}. payload می‌تواند JSONObject / JSONArray / String باشد. */
@@ -48,6 +51,7 @@ class ApiClient(private val store: Store) {
 
     /** ورود با نام کاربری/رمز. در صورت موفقیت اطلاعات ورود هم برای ورود خودکار ذخیره می‌شود. */
     suspend fun login(username: String, password: String) = withContext(Dispatchers.IO) {
+        requireOnline()
         lock.withLock {
             requestToken(passwordForm(username, password), null)
             store.saveCredentials(username, password)
@@ -65,6 +69,7 @@ class ApiClient(private val store: Store) {
         query: Map<String, String> = emptyMap(),
         body: JSONObject? = null
     ): Envelope = withContext(Dispatchers.IO) {
+        requireOnline() // آفلاین: حتی تلاش برای اتصال یا تمدید توکن هم نمی‌کنیم
         val first = validToken()
         var r = send(method, path, query, body, first)
         if (r.http == 401) {
@@ -210,6 +215,10 @@ class ApiClient(private val store: Store) {
         }
         val payload = if (j.isNull("payload")) null else j.get("payload")
         return Envelope(type, code, msg, payload)
+    }
+
+    private fun requireOnline() {
+        if (!ir.abdev.samadx.util.Net.isOnline()) throw OfflineException()
     }
 
     private fun networkError() = ApiException(
