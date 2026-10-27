@@ -119,6 +119,22 @@ private fun JSONArray?.objects(): List<JSONObject> {
     return out
 }
 
+/**
+ * ترتیب طبیعی وعده‌ها در روز (همه‌ی حالت‌ها: فقط ناهار، ناهار+شام، و ماه رمضان با سحری/افطاری).
+ * شناسه‌های سرور: ۶ صبحانه، ۷ ناهار، ۸ شام، ۹ افطاری، ۱۰ سحری؛ بقیه (سلف‌های ویژه) به ترتیب شناسه در انتها.
+ * نام وعده همیشه از خود سرور می‌آید؛ پس نوع جدید هم بدون تغییر کد نمایش داده می‌شود.
+ */
+object Meals {
+    fun rank(mealTypeId: Int): Int = when (mealTypeId) {
+        10 -> 0 // سحری
+        6 -> 1  // صبحانه
+        7 -> 2  // ناهار
+        9 -> 3  // افطاری
+        8 -> 4  // شام
+        else -> 10 + mealTypeId
+    }
+}
+
 object Parsers {
 
     fun selfs(arr: JSONArray): List<Self> =
@@ -152,7 +168,7 @@ object Parsers {
         val days = options
             .groupBy { it.date }
             .toSortedMap()
-            .map { (date, list) -> DayPlan(LocalDate.parse(date), list.sortedBy { it.mealTypeId }) }
+            .map { (date, list) -> DayPlan(LocalDate.parse(date), list.sortedBy { Meals.rank(it.mealTypeId) }) }
 
         return WeekPlan(weekStart, days, reserves)
     }
@@ -190,7 +206,7 @@ object Parsers {
                     reserve = rv
                 )
             }
-            if (opts.isNotEmpty()) days += DayPlan(LocalDate.parse(d.str("date") ?: continue), opts)
+            if (opts.isNotEmpty()) days += DayPlan(LocalDate.parse(d.str("date") ?: continue), opts.sortedBy { Meals.rank(it.mealTypeId) })
         }
         val remain = if (payload.has("remainCredit") && !payload.isNull("remainCredit")) payload.lng("remainCredit") else null
         return WeekPlan(weekStart, days, reserves, partial = true) to remain

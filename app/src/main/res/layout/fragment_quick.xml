@@ -77,6 +77,25 @@
                     android:textAppearance="?attr/textAppearanceBodySmall"
                     android:textColor="?attr/colorOnSurfaceVariant" />
 
+                <!-- چند حساب برای همین وعده: بین حساب‌ها با یک لمس (یا کشیدن QR به چپ/راست) جابه‌جا شوید -->
+                <HorizontalScrollView
+                    android:id="@+id/accounts_scroll"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:scrollbars="none"
+                    android:visibility="gone">
+
+                    <com.google.android.material.chip.ChipGroup
+                        android:id="@+id/account_chips"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:chipSpacingHorizontal="8dp"
+                        app:selectionRequired="true"
+                        app:singleLine="true"
+                        app:singleSelection="true" />
+                </HorizontalScrollView>
+
                 <!-- جای QR از همان ابتدا رزرو می‌شود؛ تا رسیدن کد، انیمیشن بارگذاری دیده می‌شود.
                      خود QR همیشه سیاه‌روی‌سفید است تا اسکنر دستگاه بخواند -->
                 <FrameLayout
@@ -162,37 +181,68 @@
                     android:textAppearance="?attr/textAppearanceBodySmall"
                     android:textColor="?attr/colorOnSurfaceVariant" />
 
-                <LinearLayout
+                <TextView
+                    android:id="@+id/multi_hint"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:gravity="center"
+                    android:text="@string/quick_multi_hint"
+                    android:textAppearance="?attr/textAppearanceBodySmall"
+                    android:textColor="?attr/colorOnSurfaceVariant"
+                    android:visibility="gone" />
+
+                <!-- چندحسابی: علامت «تحویل شد» و رفتن به حساب بعدی با یک لمس -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_done"
+                    style="@style/Widget.Material3.Button.TonalButton"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
+                    android:visibility="gone" />
+
+                <!-- قبلی · اشتراک‌گذاری · بعدی -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:gravity="center_vertical"
                     android:orientation="horizontal">
 
                     <com.google.android.material.button.MaterialButton
-                        android:id="@+id/btn_share"
-                        style="?attr/materialButtonOutlinedStyle"
+                        android:id="@+id/btn_prev"
+                        style="@style/Widget.Material3.Button.TextButton"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginEnd="8dp"
                         android:layout_weight="1"
-                        android:text="@string/share"
+                        android:text="@string/quick_prev"
+                        app:icon="@drawable/ic_arrow_back"
+                        app:iconGravity="textStart" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btn_share"
+                        style="@style/Widget.Material3.Button.IconButton.Outlined"
+                        android:layout_width="52dp"
+                        android:layout_height="52dp"
+                        android:contentDescription="@string/share"
                         app:icon="@drawable/ic_share" />
 
                     <com.google.android.material.button.MaterialButton
                         android:id="@+id/btn_next"
-                        style="@style/Widget.Material3.Button.TonalButton"
+                        style="@style/Widget.Material3.Button.TextButton"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="@string/quick_next"
-                        android:visibility="gone" />
+                        app:icon="@drawable/ic_arrow_forward"
+                        app:iconGravity="textEnd" />
                 </LinearLayout>
 
                 <TextView
                     android:id="@+id/remaining"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
+                    android:layout_marginTop="4dp"
                     android:gravity="center"
                     android:textAppearance="?attr/textAppearanceBodySmall"
                     android:textColor="?attr/colorOnSurfaceVariant"

@@ -122,10 +122,17 @@
 
     <!-- تحویل سریع -->
     <string name="quick_none">وعده‌ی رزروشده‌ی تحویل‌نشده‌ای در پیش نیست. از تب «برنامه غذایی» رزرو کنید.</string>
-    <string name="quick_next">وعده‌ی بعدی</string>
+    <string name="quick_next">بعدی</string>
+    <string name="quick_account_failed">دریافت اطلاعات این حساب‌ها ممکن نشد: %1$s</string>
+    <string name="quick_prev">قبلی</string>
+    <string name="quick_position">وعده‌ی %1$s از %2$s</string>
+    <string name="quick_multi_hint">حساب را از نوار بالا انتخاب کنید یا QR را به چپ و راست بکشید.</string>
+    <string name="quick_done_next">تحویل شد · حساب بعدی</string>
+    <string name="quick_done">تحویل شد</string>
+    <string name="quick_undo">برداشتن علامت تحویل</string>
+    <string name="quick_all_done">همه‌ی حساب‌های این وعده تحویل شد ✓</string>
     <string name="quick_today">امروز</string>
     <string name="quick_tomorrow">فردا</string>
-    <string name="quick_remaining">%1$s وعده‌ی رزروشده‌ی دیگر هم دارید.</string>
 
     <!-- حساب: رمز و گزارش -->
     <string name="account_change_password">تغییر رمز عبور</string>

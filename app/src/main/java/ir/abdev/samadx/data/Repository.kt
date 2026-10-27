@@ -375,7 +375,7 @@ class Repository(private val api: ApiClient, private val store: Store) {
             if (next.days.isEmpty()) break
         }
         if (cur == null && list.isEmpty()) return null
-        return Upcoming(list.sortedWith(compareBy({ it.date }, { it.mealTypeId })), at, null)
+        return Upcoming(list.sortedWith(compareBy({ it.date }, { Meals.rank(it.mealTypeId) })), at, null)
     }
 
     /**
@@ -402,13 +402,13 @@ class Repository(private val api: ApiClient, private val store: Store) {
             cacheError = cacheError ?: plan.cacheError
             if (i >= 1 && plan.days.isEmpty()) break
         }
-        return Upcoming(list.sortedWith(compareBy({ it.date }, { it.mealTypeId })), cachedAt, cacheError)
+        return Upcoming(list.sortedWith(compareBy({ it.date }, { Meals.rank(it.mealTypeId) })), cachedAt, cacheError)
     }
 
     private fun upcomingOf(plan: WeekPlan, today: LocalDate): List<Option> =
         plan.days.flatMap { it.options }
             .filter { o -> o.reserve?.let { it.selected && !it.consumed } == true && LocalDate.parse(o.date) >= today }
-            .sortedWith(compareBy({ it.date }, { it.mealTypeId }))
+            .sortedWith(compareBy({ it.date }, { Meals.rank(it.mealTypeId) }))
 
     /** رمز یا نشست این حساب نامعتبر شده: توکن‌ها و رمز پاک می‌شوند اما حساب و کش‌هایش می‌مانند. */
     fun invalidateSession() {

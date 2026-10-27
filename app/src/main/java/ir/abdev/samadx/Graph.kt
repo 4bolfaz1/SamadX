@@ -55,6 +55,9 @@ object Graph {
 
     fun storeOf(info: AccountInfo): Store = sessionOf(info).store
 
+    /** مخزن داده‌ی یک حساب مشخص (برای صفحه‌ی تحویل سریع که همه‌ی حساب‌ها را کنار هم نشان می‌دهد). */
+    fun repoOf(info: AccountInfo): Repository = sessionOf(info).repo
+
     /** نام نمایشی حساب: نام و نام خانوادگی اگر داشتیم، وگرنه شماره دانشجویی. */
     fun labelOf(info: AccountInfo): String =
         storeOf(info).fullName?.takeIf { it.isNotBlank() } ?: info.id
